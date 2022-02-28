@@ -1,22 +1,22 @@
 defmodule Inmana.Welcomer do
-  def welcome(%{"name" => name, "age" => age, "gender" => gender}) do
+  def welcome(%{"name" => name, "age" => age}) do
     age = String.to_integer(age)
 
     name
     |> String.trim()
     |> String.downcase()
-    |> evaluate(age, gender)
+    |> evaluate(age)
   end
 
-  defp evaluate("banana", 42, _gender) do
+  defp evaluate("banana", 42) do
     {:ok, "You are very special banana"}
   end
 
-  defp evaluate(name, age, _gender) when age >= 18 do
+  defp evaluate(name, age) when age >= 18 do
     {:ok, "Welcome #{name}"}
   end
 
-  defp evaluate(name, _age, gender) do
-    {:error, "Welcome shall not pass #{name} - #{gender}"}
+  defp evaluate(name, _age) do
+    {:error, "You shall not pass #{name}"}
   end
 end
