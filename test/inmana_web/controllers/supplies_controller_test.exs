@@ -1,5 +1,5 @@
 defmodule InmanaWeb.SuppliesControllerTest do
-  use InmanaWeb.ConnCase
+  use InmanaWeb.ConnCase, async: true
 
   describe "create/2" do
     test "when all params are valid, returns success", %{conn: conn} do
@@ -34,16 +34,6 @@ defmodule InmanaWeb.SuppliesControllerTest do
                  "restaurant_id" => ^restaurant_id
                }
              } = response
-
-      # assert id = response
-
-      # response =
-      #   conn
-      #   |> post(Routes.restaurants_path(conn, :create, params))
-      #   |> json_response(:created)
-
-      # assert response == "banana"
-      # expected_response =
     end
   end
 end

@@ -1,5 +1,5 @@
 defmodule Inmana.RestaurantTest do
-  use Inmana.DataCase
+  use Inmana.DataCase, async: true
 
   alias Inmana.Restaurant
   alias Ecto.Changeset
